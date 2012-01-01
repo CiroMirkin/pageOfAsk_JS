@@ -39,7 +39,7 @@ const askFromCustomer = []
 
 const categoriesContainer = document.getElementById('categories')
 const categorieListContainer = document.getElementById('categorieList')
-const showAskFromCustomerBtn = document.getElementById('showAskFromCustomerBtn')
+const askFromCustomerHTMLContainer = document.getElementById('askFromCustomerContainer')
 
 const showCategorieContent = (categorieContent) => {
     categorieListContainer.innerHTML = categorieContent.map(categorieItem => 
@@ -79,10 +79,33 @@ categorieListContainer.addEventListener('click', e => {
     }
 })
 
-showAskFromCustomerBtn.addEventListener('click', () => {
+const showAskFromCustomer = (btnElement) => {
     const askFromCustomerHTMLContainer = document.getElementById('askFromCustomer')
+    
+    if(btnElement.innerText == 'Ver pedido') {
+        askFromCustomerHTMLContainer.innerHTML = askFromCustomer.map(item => 
+            `<li class="list__item"> ${item.amountOfAsk} - ${item.name}</li>`
+        ).join('')
+        btnElement.innerText = 'Ocultar pedido'
+    } else {
+        askFromCustomerHTMLContainer.innerHTML = ''
+        btnElement.innerText = 'Ver pedido'
+    }
+}
 
-    askFromCustomerHTMLContainer.innerHTML = askFromCustomer.map(item => 
-        `<li class="list__item"> ${item.amountOfAsk} - ${item.name}</li>`
-    ).join('')
+askFromCustomerHTMLContainer.addEventListener('click', (e) => {
+    const id = e.target.id
+    
+    if(id == 'showAskFromCustomerBtn') {
+        showAskFromCustomer(e.target)
+    }
+    else if (id == 'dontTakeAskFromCustomerBtn') {
+        askFromCustomer.length = 0
+        const showAskFromCustomerBtn = document.getElementById('showAskFromCustomerBtn')
+        showAskFromCustomerBtn.innerText = 'Ocultar pedido'
+        showAskFromCustomer(showAskFromCustomerBtn)
+    } 
+    else if (id == 'takeAskFromCustomerBtn') {
+        console.log('take ask from customer!')
+    }
 })
