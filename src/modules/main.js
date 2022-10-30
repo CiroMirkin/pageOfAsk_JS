@@ -10,7 +10,7 @@ function getCategories() {
             ]
         },
         {
-            name: 'empanadas',
+            name: 'Empanadas',
             id: 'empanadas',
             content: ["Empanadas de carne", "Empanadas de jamon y queso", "Empanafas arabes"]
         },
@@ -44,9 +44,11 @@ const askFromCustomerHTMLContainer = document.getElementById('askFromCustomerCon
 const showCategorieContent = (categorieContent) => {
     categorieListContainer.innerHTML = categorieContent.map(categorieItem => 
         `<li class="item">
-        ${categorieItem}
-        <input type="number" class="item-inputNumber">
-        <button class="item-send">Pedir</button>
+            ${categorieItem}
+            <div>
+                <input type="number" class="item-inputNumber">
+                <button class="item-send">Pedir</button>
+            </div>
         </li>`
     ).join('')
 }

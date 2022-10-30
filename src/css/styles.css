@@ -3,8 +3,7 @@
 main {
     width: 100%;
     padding: 5vw;
-    display: grid;
-    grid-template-columns: 20% 80%;
+    display: flex;
 }
 .categories {
     padding: 5px 10px;
@@ -14,14 +13,18 @@ main {
     list-style: none;
 }
 .categories__categorie {
-    width: 10rem;
+    width: 8rem;
     margin: 10px 0;
     padding: 6px;
     border-radius: 10px;
     border: 1px solid #000;
+    background: #fff;
+}
+.categories__categorie:hover {
+    background-color: #eee;
 }
 .categorie { 
-    padding: 2vh 5vw;
+    padding: 2vh 0 2vh 5vw;
 }
 .categorie__list {
     display: flex;
@@ -30,5 +33,25 @@ main {
     list-style: none;
 }
 .categorie__list .item {
-    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 2.1ch;
+    font-family:sans-serif;
+    font-weight: bold;
+}
+.categorie__list .item-inputNumber {
+    width: 50px;
+    height: 20px;
+}
+.categorie__list .item-send {
+    padding: 1px 2px;
+    width: 65px;
+    font-size: 14px;
+    text-align: center;
+    border: #000 solid 1px;
+    background-color: #fff;
+}
+.categorie__list .item-send:hover {
+    background-color: #eee;
 }
