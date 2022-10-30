@@ -45,10 +45,8 @@ const showCategorieContent = (categorieContent) => {
     categorieListContainer.innerHTML = categorieContent.map(categorieItem => 
         `<li class="item">
             ${categorieItem}
-            <div>
-                <input type="number" class="item-inputNumber">
-                <button class="item-send">Pedir</button>
-            </div>
+            <input type="number" class="item-inputNumber">
+            <button class="item-send">Pedir</button>
         </li>`
     ).join('')
 }
@@ -73,7 +71,7 @@ categoriesContainer.addEventListener('click', (e) => {
 categorieListContainer.addEventListener('click', e => {
     if(e.target.classList[0] == 'item-send') {
         const item = {
-            name: `${e.target.parentElement.innerText}`.split('  ').at(0),
+            name: `${e.target.parentElement.innerText}`.slice(0, -5),
             amountOfAsk: e.target.previousElementSibling.value || 1
         }
         askFromCustomer.push(item)
